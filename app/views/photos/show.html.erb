@@ -1,3 +1,18 @@
 <%= @photo.name %><br>
 <%= @photo.notes %><br>
 <%= image_tag("#{@photo.url}") %>
+
+<%= form_for([current_patient, @photo, @comment]) do |f| %>
+  <p>
+    <%= f.label :content, "Comment" %>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<% @photo.comments.each do |f| %>
+	<%= f.content %><br>
+<% end %>
