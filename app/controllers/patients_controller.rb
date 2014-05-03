@@ -7,7 +7,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
-      redirect_to new_patient_path, notice: "Signed up!"
+      redirect_to root_path, notice: "Signed up!"
     else
       render :new
     end
@@ -24,7 +24,7 @@ class PatientsController < ApplicationController
   def update
     @patient = Patient.find(params[:id])
     if @patient.update_attributes(patient_params)
-      redirect_to new_patient_path
+      redirect_to root_path
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class PatientsController < ApplicationController
   def destroy
     @patient = Patient.find(params[:id])
     @patient.destroy
-    redirect_to new_patient_path
+    redirect_to root_path
   end
 
   private

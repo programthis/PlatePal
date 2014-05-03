@@ -8,14 +8,9 @@
 </head>
 <body>
 	<% if current_patient %>
+		<%= link_to "EDIT", edit_patient_path(current_patient) %>
 		<%= link_to "LOG OUT", session_path("current"), method: :delete%>
 		<br>
-		Name: <%= current_patient.name %><br>
-		Email: <%= current_patient.email %><br>
-		Weight: <%= current_patient.weight %><br>
-		Height: <%= current_patient.height %><br>
-		Weight Goal: <%= current_patient.weight_goal %><br>
-		Phone: <%= current_patient.phone %><br>
 	<% else %>
 		<%= link_to "LOG IN", new_session_path %>
 		<%= link_to "SIGN IN", new_patient_path %>

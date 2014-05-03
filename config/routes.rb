@@ -4,7 +4,7 @@ PlatePal::Application.routes.draw do
   resources :sessions
   resources :welcome
 
-  root to: "welcome#index"
+  root to: "welcome#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

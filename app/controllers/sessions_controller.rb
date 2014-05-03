@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   	patient = Patient.find_by_email(params[:email])
   	if patient && patient.authenticate(params[:password])
   		session[:patient_id] = patient.id
-  		redirect_to patient_path(patient), notice: "Logged in!"
+  		redirect_to welcome_path(patient), notice: "Logged in!"
   	else
   		flash.now[:alert] = "Invalid email or password"
   		render :new
