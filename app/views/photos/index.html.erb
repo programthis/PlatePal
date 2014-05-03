@@ -1,5 +1,5 @@
 <% @photos.each do |f| %>
 	<%= f.name %><br>
 	<%= f.notes %><br>
-	<%= image_tag("#{f.url}") %>
+	<%= link_to image_tag("#{f.url}"),patient_photo_path(current_patient,f) %>
 <% end %>
