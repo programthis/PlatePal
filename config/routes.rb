@@ -1,6 +1,8 @@
 PlatePal::Application.routes.draw do
   
-  resources :patients
+  resources :patients do
+    resources :photos
+  end
   resources :sessions
   resources :welcome
 

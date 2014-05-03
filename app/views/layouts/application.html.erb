@@ -8,6 +8,7 @@
 </head>
 <body>
 	<% if current_patient %>
+		<%= link_to "ADD PHOTO", new_patient_photo_path(current_patient) %>
 		<%= link_to "EDIT", edit_patient_path(current_patient) %>
 		<%= link_to "LOG OUT", session_path("current"), method: :delete%>
 		<br>
@@ -15,8 +16,6 @@
 		<%= link_to "LOG IN", new_session_path %>
 		<%= link_to "SIGN IN", new_patient_path %>
 	<% end %>
-
-	
 
 <%= yield %>
 
