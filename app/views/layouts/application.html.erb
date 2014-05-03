@@ -1,3 +1,5 @@
+<?php require_once('../php/getusermedia.php');?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,9 +7,17 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+
 </head>
 <body>
 	<% if current_patient %>
+		<div id = "add_photo">
+			HELLO
+		</div>
+		<%= link_to "HOME", root_path %>
 		<%= link_to "ADD PHOTO", new_patient_photo_path(current_patient) %>
 		<%= link_to "EDIT", edit_patient_path(current_patient) %>
 		<%= link_to "LOG OUT", session_path("current"), method: :delete%>
