@@ -14,5 +14,6 @@
 <% end %>
 
 <% @photo.comments.each do |f| %>
-	<%= f.content %><br>
+	<b>Name</b>: <%= f.name %>
+	WHAT'd that boy say?<%= f.content %><br>
 <% end %>

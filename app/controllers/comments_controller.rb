@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.photo = @photo
+    @comment.name = current_patient.name
     if @comment.save
       redirect_to patient_photo_path(current_patient,@photo), notice: "Added new comment!"
     else
