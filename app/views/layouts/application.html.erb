@@ -23,10 +23,10 @@
 	       
 	      </li>
 	      <li>
-	        <a id = "nav_logo" <%= link_to image_tag("logo.svg"),root_path %>></a>
+	        <%= link_to image_tag("logo.svg"),root_path, id: "nav_logo" %>
 	      </li>
 	      <li>
-	        <img <%= image_tag("icons/menu.svg") %>>
+	        <%= image_tag("icons/menu.svg") %>
 	      </li>
 	    </ul>    
 	</nav>
