@@ -38,11 +38,10 @@
 	  $(document).foundation();
 	</script>
 
+<%= yield %>
+
 	<% if current_patient %>
-		<%= link_to "HOME", root_path %>
-		<%= link_to "ALL PHOTOS", patient_photos_path(current_patient) %>
-		<%= link_to "ADD PHOTO", new_patient_photo_path(current_patient) %>
-		<%= link_to "EDIT", edit_patient_path(current_patient) %>
+		<%= link_to "EDIT PROFILE", edit_patient_path(current_patient) %>
 		<%= link_to "LOG OUT", session_path("current"), method: :delete%>
 		<br>
 	<% else %>
@@ -50,7 +49,6 @@
 		<%= link_to "SIGN UP", new_patient_path %>
 	<% end %>
 
-<%= yield %>
 
 </body>
 </html>

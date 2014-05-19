@@ -1,0 +1,27 @@
+<%= form_for [current_patient,@photo] do |f| %>
+	<p>
+		<%= label :name, 'Meal' %><br>
+		<%= f.radio_button :name, 'Breakfast', :checked => true %> 
+  		<%= label :name_breakfast, 'Breakfast' %><br>
+  		<%= f.radio_button :name, 'Lunch' %>
+  		<%= label :name_lunch, 'Lunch' %><br>
+  		<%= f.radio_button :name, 'Dinner', :checked => true %> 
+  		<%= label :name_dinner, 'Dinner' %><br>
+  		<%= f.radio_button :name, 'Snack' %>
+  		<%= label :name_snack, 'Snack' %><br>
+	</p>
+		<%= f.label :date %><br>
+		<%= f.date_field :date %>
+	</p>
+	<p>
+		<%= f.label :url %><br>
+		<%= f.text_field :url %>
+	</p>
+	<p>
+		<%= f.label :notes %><br>
+		<%= f.text_field :notes %>
+	</p>
+	<p>
+		<%= f.submit "Save" %>
+	</p>
+<% end %>
