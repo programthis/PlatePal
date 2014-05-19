@@ -38,7 +38,7 @@
       <h2 style="padding-top:5px;"> ◄ </h2>
     </div>
     <div class="small-10 columns">
-      <h2>today's meals</h2>
+      <h2>latest meals</h2>
     </div>
     <div class="small-1 columns">
       <h2 style="padding-top:5px;"> ► </h2>
@@ -46,6 +46,14 @@
   </div><!--end recent photos-->
 
   <ul class="small-block-grid-3">
+  	<% @photos.each do |photo| %>
+  		<li>
+  			<%= link_to image_tag(photo.url, class: "th"), patient_photo_path(current_patient, photo) %>
+  			<p class="meal"><%= photo.notes %></p>
+  		</li>
+  	<% end %>
+
+
     <li>
       <%= image_tag("breakfast.jpg", class: "th") %>
       <p class="meal">Breakfast</p>
