@@ -1,3 +1,113 @@
+  <section id="photo-large">
+    <div class="container">
+
+      <div class="row">
+        <div class="small-12 columns meal-img">
+          <img src="img/mamas-food-square.jpg">
+        </div>  
+      </div>
+
+    </div><!--container-->
+  </section><!--photo-large-->
+
+  <section id="photo-comments">
+   <div class="container">
+
+   	<%= form_for [current_patient,@photo] do |f| %>
+
+   		<!-- <div class="small-9 columns" style="padding: 0">
+   		  <input type="radio"><label class="meal-type">Breakfast</label>
+   		  <input type="radio"><label class="meal-type">Lunch</label>
+   		  <input type="radio"><label class="meal-type">Dinner</label>
+   		  <input type="radio"><label class="meal-type">Snack</label>
+   		</div> -->
+
+
+   		<div class="row comments">
+
+   			<div class="small-3 columns" style="padding: 0">
+   			  <label class="photo-deets">Meal</label>
+   			</div>
+
+   			<div class="small-9 columns" style="padding: 0">
+		   		<p>
+		   			<%= f.radio_button :name, 'Breakfast', :checked => true, class: "meal-type" %> 
+		   	  		<%= label :name_breakfast, 'Breakfast',class: "meal-type" %>
+		   	  		<%= f.radio_button :name, 'Lunch', class: "meal-type" %>
+		   	  		<%= label :name_lunch, 'Lunch', class: "meal-type" %>
+		   	  		<%= f.radio_button :name, 'Dinner', :checked => true, class: "meal-type" %> 
+		   	  		<%= label :name_dinner, 'Dinner', class: "meal-type" %>
+		   	  		<%= f.radio_button :name, 'Snack', class: "meal-type" %>
+		   	  		<%= label :name_snack, 'Snack', class: "meal-type" %>
+		   		</p>
+	   		</div>
+   		<div class="row comments">
+
+   		<p>
+   			<%= f.label :date %><br>
+   			<%= f.date_field :date %>
+   		</p>
+   		<p>
+   			<%= f.label :url %><br>
+   			<%= f.text_field :url %>
+   		</p>
+   		<p>
+   			<%= f.label :notes %><br>
+   			<%= f.text_field :notes %>
+   		</p>
+   		<p>
+   			<%= f.submit "Save" %>
+   		</p>
+   	<% end %>
+
+
+
+    <div class="row comments">
+
+     <div class="small-3 columns" style="padding: 0">
+       <label class="photo-deets">Date</label>
+     </div>
+
+     <div class="small-9 columns" style="padding: 0">
+       <input type="text" placeholder="Date" id="datepicker">
+     </div>
+
+   </div>
+
+   <div class="row comments">
+
+     <div class="small-3 columns" style="padding: 0">
+       <label class="photo-deets">Meal</label>
+     </div>
+
+     <div class="small-9 columns" style="padding: 0">
+       <input type="radio"><label class="meal-type">Breakfast</label>
+       <input type="radio"><label class="meal-type">Lunch</label>
+       <input type="radio"><label class="meal-type">Dinner</label>
+       <input type="radio"><label class="meal-type">Snack</label>
+     </div>
+
+   </div>
+
+   <div class="row comments">
+
+     <div class="small-3 columns" style="padding: 0">
+      <label class="photo-deets">NOTES</label>
+     </div>
+
+     <div class="small-9 columns" style="padding: 0">
+       <textarea class="notes-div" id="notes" placeholder="Make a note of what you ate..."></textarea>
+     </div>
+
+   </div>
+
+
+    <input type="submit" class="button log-submit" value="Log it!">
+
+
+ </div><!--container-->
+</section><!--photo-large-->
+
 <%= form_for [current_patient,@photo] do |f| %>
 	<p>
 		<%= label :name, 'Meal' %><br>
