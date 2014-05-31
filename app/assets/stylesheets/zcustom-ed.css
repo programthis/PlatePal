@@ -193,8 +193,11 @@ nav {
 	padding-top: 8%;
 }
 
-.starting-weight, .current-weight, .goal-weight {
+.user-attributes, .user-attributes-loss {
 	color: #079e00;
+}
+.user-attributes-gain{
+	color: red;
 }
 
 

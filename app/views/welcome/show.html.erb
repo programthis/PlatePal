@@ -9,9 +9,15 @@
     </div>
 
     <div class="small-5 columns prof-details">
-      <p>starting weight: <span class="starting-weight">600lbs</span></p>
-      <p>current weight: <span class="current-weight">550lbs</span></p>
-      <p>weekly goal: <span class="starting-weight">500lbs</span></p>
+      <p>Name: <span class="user-attributes"><%= current_patient.name %></span></p>
+      <p>Current Weight: <span class="user-attributes"><%= current_patient.weight %>lbs</span></p>
+      <p>Weight Change: 
+        <% if (calc_difference > 0) %>
+          <span class="user-attributes-gain"><%= calc_difference %>lbs</span>
+        <% else %>
+          <span class="user-attributes-loss"><%= calc_difference %>lbs</span>
+        <% end %>
+        
     </div>
 
     <div class="small-3 columns prof-progress">

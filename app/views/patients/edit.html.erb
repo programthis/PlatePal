@@ -21,15 +21,23 @@
 	</p>
 	<p>
 		<%= f.label :weight %><br>
-		<%= f.number_field :weight %>
+		<%= f.number_field :weight, step: "any" %>
 	</p>
 	<p>
 		<%= f.label :avatar %><br>
 		<%= f.text_field :avatar %>
 	</p>
 	<p>
+		<%= f.label :current_weeks_weight %><br>
+		<%= f.number_field :current_weeks_weight, step: "any" %>
+	</p>
+	<p>
+		<%= f.label :last_weeks_weight %><br>
+		<%= f.number_field :last_weeks_weight, step: "any" %>
+	</p>
+	<p>
 		<%= f.label :height %><br>
-		<%= f.number_field :height %>
+		<%= f.number_field :height, step: "any" %>
 	</p>
 	<p>
 		<%= f.submit "Save" %>

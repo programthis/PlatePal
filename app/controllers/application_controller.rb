@@ -8,5 +8,10 @@ class ApplicationController < ActionController::Base
     @current_patient ||= Patient.find(session[:patient_id]) if session[:patient_id]
   end
 
+  def calc_difference
+	current_patient.current_weeks_weight - current_patient.last_weeks_weight
+  end
+
   helper_method :current_patient
+  helper_method :calc_difference
 end
