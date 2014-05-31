@@ -3,7 +3,9 @@
   <div class="row prof-pic-details">
 
     <div class="small-4 columns prof-pic">
+        <% if current_patient %>
         <%= link_to image_tag("http://www.kylebachan.com/wp-content/uploads/2013/01/creator.jpg"), edit_patient_path(current_patient)  %>
+        <% end %>
     </div>
 
     <div class="small-5 columns prof-details">
@@ -20,13 +22,18 @@
 
   <div class="row" id="prof-buttons">
     <div class="small-6 columns">
-      <%= link_to "UPLOAD MEAL", new_patient_photo_path(current_patient), class: "button upload" %>
-      <%= link_to "ALL MEALS", patient_photos_path(current_patient), class: "button upload" %>
+      <% if current_patient %>
+        <%= link_to "UPLOAD MEAL", new_patient_photo_path(current_patient), class: "button upload" %>
+        <%= link_to "ALL MEALS", patient_photos_path(current_patient), class: "button upload" %>
+      <% end %>
     </div>
 
 
     <div class="small-6 columns">
+      <% if current_patient %>
+      <%= link_to "NEW FEEDBACK (3)", patient_photos_path(current_patient), class: "button upload" %>
       <a href="recent-comments.html" class="button comments-button">NEW FEEDBACK (3)</a>
+      <% end %>
     </div>
   </div><!--end buttons row-->
 </section>
@@ -45,6 +52,8 @@
     </div>
   </div><!--end recent photos-->
 
+
+  <% if current_patient %>
   <ul class="small-block-grid-3">
   	<% @photos.each do |photo| %>
   		<li>
@@ -52,7 +61,7 @@
   			<p class="meal"><%= photo.notes %></p>
   		</li>
   	<% end %>
-
+  <% end %>
 
     <li>
       <%= image_tag("breakfast.jpg", class: "th") %>
@@ -81,7 +90,6 @@
 		Age: <%= current_patient.age %><br>
 		Weight: <%= current_patient.weight %><br>
 		Height: <%= current_patient.height %><br>
-		Weight Goal: <%= current_patient.weight_goal %><br>
 		Phone: <%= current_patient.phone %><br>
 <% else %>
 

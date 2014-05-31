@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   before_filter :load_photo
 
+  def index
+    @comments = Comment.all
+  end
+
   def new
     @comment=Comment.new
   end
