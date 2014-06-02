@@ -24,12 +24,20 @@
 		<%= f.number_field :weight %>
 	</p>
 	<p>
-		<%= f.label :weight_goal %><br>
-		<%= f.number_field :weight_goal %>
+		<%= f.label :avatar %><br>
+		<%= f.text_field :avatar %>
+	</p>
+	<p>
+		<%= f.label :last_weeks_weight %><br>
+		<%= f.number_field :last_weeks_weight, class: "text_field", step: "any" %>
+	</p>
+	<p>
+		<%= f.label :current_weeks_weight %><br>
+		<%= f.number_field :current_weeks_weight, class: "text_field", step: "any" %>
 	</p>
 	<p>
 		<%= f.label :height %><br>
-		<%= f.number_field :height %>
+		<%= f.number_field :height, class: "text_field", step: "any" %>
 	</p>
 	<p>
 		<%= f.submit "Sign up" %>

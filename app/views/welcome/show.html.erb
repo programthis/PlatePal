@@ -4,26 +4,32 @@
 
     <div class="small-4 columns prof-pic">
         <% if current_patient %>
-        <%= link_to image_tag("http://www.kylebachan.com/wp-content/uploads/2013/01/creator.jpg"), edit_patient_path(current_patient)  %>
+        <%= link_to image_tag(current_patient.avatar), edit_patient_path(current_patient)  %>
         <% end %>
     </div>
 
     <div class="small-5 columns prof-details">
-      <p>Name: <span class="user-attributes"><%= current_patient.name %></span></p>
-      <p>Current Weight: <span class="user-attributes"><%= current_patient.weight %>lbs</span></p>
-      <p>Weight Change: 
-        <% if (calc_difference > 0) %>
-          <span class="user-attributes-gain"><%= calc_difference %>lbs</span>
-        <% else %>
-          <span class="user-attributes-loss"><%= calc_difference %>lbs</span>
-        <% end %>
+      <% if current_patient %>
+        <p>Name: <span class="user-attributes"><%= current_patient.name %></span></p>
+        <p>Current Weight: <span class="user-attributes"><%= current_patient.weight %>lbs</span></p>
+        <p>Last Week's Weight: <span class="user-attributes"><%= current_patient.last_weeks_weight %>lbs</span></p>
+        <p>Weight Change: 
+          <% if (calc_difference > 0) %>
+            <span class="user-attributes-gain"><%= calc_difference %>lbs</span>
+          <% else %>
+            <span class="user-attributes-loss"><%= calc_difference %>lbs</span>
+          <% end %>
+      <% end %>
         
     </div>
 
+    <% if current_patient %>
     <div class="small-3 columns prof-progress">
-      <p style="margin-bottom: 10px">Total Lost</p>
+      <p style="margin-bottom: 10px"><%= link_to "EDIT", edit_patient_path(current_patient)%></p>
       <p class="pounds">10 <span class="lbs">lbs</span></p>
     </div>
+
+    <% end %>
   </div><!--end details row-->
 
   <div class="row" id="prof-buttons">
