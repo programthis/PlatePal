@@ -11,6 +11,7 @@
     <div class="small-5 columns prof-details">
       <% if current_patient %>
         <p>Name: <span class="user-attributes"><%= current_patient.name %></span></p>
+        <p>Age: <span class="user-attributes"><%= current_patient.age %></span></p>
         <p>Current Weight: <span class="user-attributes"><%= current_patient.weight %>lbs</span></p>
         <p>Last Week's Weight: <span class="user-attributes"><%= current_patient.last_weeks_weight %>lbs</span></p>
         <p>Weight Change: 
@@ -43,7 +44,7 @@
 
     <div class="small-6 columns">
       <% if current_patient %>
-      <%= link_to "NEW FEEDBACK (3)", patient_photos_path(current_patient), class: "button upload" %>
+      <%= link_to "GOALS", patient_goals_path(current_patient), class: "button upload" %>
       <a href="recent-comments.html" class="button comments-button">NEW FEEDBACK (3)</a>
       <% end %>
     </div>

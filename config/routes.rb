@@ -1,9 +1,11 @@
 PlatePal::Application.routes.draw do
 
+  
   resources :patients do
     resources :photos do
       resources :comments
     end
+    resources :goals
   end
 
 # think about trying comments as its own resource (instead of nesting it inside of patients and photos)
