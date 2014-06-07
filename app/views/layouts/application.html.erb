@@ -43,8 +43,10 @@
 		<%= link_to "LOG OUT", session_path("current"), method: :delete%>
 		<br>
 	<% else %>
-		<%= link_to "LOG IN", new_session_path %>
-		<%= link_to "SIGN UP", new_patient_path %>
+		<%= link_to "Log in as Patient", new_session_path %> | 
+		<%= link_to "Sign up as Patient", new_patient_path %><br>
+		<%= link_to "Sign up as Practitioner", new_coach_path %> | 
+		<%= link_to "Log in as Practitioner", new_session_path %>
 	<% end %>
 
 
