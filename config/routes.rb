@@ -1,6 +1,9 @@
 PlatePal::Application.routes.draw do
 
   
+  get "coaches/new"
+  get "coaches/show"
+  get "coaches/edit"
   resources :patients do
     resources :photos do
       resources :comments

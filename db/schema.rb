@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605164614) do
+ActiveRecord::Schema.define(version: 20140607033056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140605164614) do
     t.float    "height"
     t.float    "current_weeks_weight"
     t.float    "last_weeks_weight"
+    t.integer  "coach_id"
   end
 
   create_table "photos", force: true do |t|
