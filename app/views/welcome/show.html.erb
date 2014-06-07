@@ -1,111 +1,115 @@
-<section id="prof-details">
+<% if current_patient || current_coach %>
 
-  <div class="row prof-pic-details">
+  <section id="prof-details">
 
-    <div class="small-4 columns prof-pic">
-        <% if current_patient %>
-        <%= link_to image_tag(current_patient.avatar), edit_patient_path(current_patient)  %>
-        <% end %>
-    </div>
+    <div class="row prof-pic-details">
 
-    <div class="small-5 columns prof-details">
-      <% if current_patient %>
-        <p>Name: <span class="user-attributes"><%= current_patient.name %></span></p>
-        <p>Age: <span class="user-attributes"><%= current_patient.age %></span></p>
-        <p>Current Weight: <span class="user-attributes"><%= current_patient.weight %>lbs</span></p>
-        <p>Last Week's Weight: <span class="user-attributes"><%= current_patient.last_weeks_weight %>lbs</span></p>
-        <p>Weight Change: 
-          <% if (calc_difference > 0) %>
-            <span class="user-attributes-gain"><%= calc_difference %>lbs</span>
-          <% else %>
-            <span class="user-attributes-loss"><%= calc_difference %>lbs</span>
+      <div class="small-4 columns prof-pic">
+          <% if current_patient %>
+          <%= link_to image_tag(current_patient.avatar), edit_patient_path(current_patient)  %>
           <% end %>
+      </div>
+
+      <div class="small-5 columns prof-details">
+        <% if current_patient %>
+          <p>Name: <span class="user-attributes"><%= current_patient.name %></span></p>
+          <p>Age: <span class="user-attributes"><%= current_patient.age %></span></p>
+          <p>Current Weight: <span class="user-attributes"><%= current_patient.weight %>lbs</span></p>
+          <p>Last Week's Weight: <span class="user-attributes"><%= current_patient.last_weeks_weight %>lbs</span></p>
+          <p>Weight Change: 
+            <% if (calc_difference > 0) %>
+              <span class="user-attributes-gain"><%= calc_difference %>lbs</span>
+            <% else %>
+              <span class="user-attributes-loss"><%= calc_difference %>lbs</span>
+            <% end %>
+        <% end %>
+          
+      </div>
+
+      <% if current_patient %>
+      <div class="small-3 columns prof-progress">
+        <p style="margin-bottom: 10px"><%= link_to "EDIT", edit_patient_path(current_patient)%></p>
+        <p class="pounds">10 <span class="lbs">lbs</span></p>
+      </div>
+
       <% end %>
-        
-    </div>
+    </div><!--end details row-->
+
+    <div class="row" id="prof-buttons">
+      <div class="small-6 columns">
+        <% if current_patient %>
+          <%= link_to "UPLOAD MEAL", new_photo_path, class: "button upload" %>
+          <%= link_to "ALL MEALS", photos_path, class: "button upload" %>
+        <% end %>
+      </div>
+
+
+      <div class="small-6 columns">
+        <% if current_patient %>
+        <%= link_to "GOALS", patient_goals_path(current_patient), class: "button upload" %>
+        <a href="recent-comments.html" class="button comments-button">NEW FEEDBACK (3)</a>
+        <% end %>
+      </div>
+    </div><!--end buttons row-->
+  </section>
+
+
+  <section id="prof-recent-photos">
+    <div class="row prof-day-tab">
+      <div class="small-1 columns">
+        <h2 style="padding-top:5px;"> ◄ </h2>
+      </div>
+      <div class="small-10 columns">
+        <h2>latest meals</h2>
+      </div>
+      <div class="small-1 columns">
+        <h2 style="padding-top:5px;"> ► </h2>
+      </div>
+    </div><!--end recent photos-->
+
 
     <% if current_patient %>
-    <div class="small-3 columns prof-progress">
-      <p style="margin-bottom: 10px"><%= link_to "EDIT", edit_patient_path(current_patient)%></p>
-      <p class="pounds">10 <span class="lbs">lbs</span></p>
-    </div>
-
+    <ul class="small-block-grid-3">
+    	<% current_patient.photos.each do |photo| %>
+    		<li>
+    			<%= link_to image_tag(photo.url, class: "th"), photo_path(photo) %>
+    			<p class="meal"><%= photo.notes %></p>
+    		</li>
+    	<% end %>
     <% end %>
-  </div><!--end details row-->
 
-  <div class="row" id="prof-buttons">
-    <div class="small-6 columns">
-      <% if current_patient %>
-        <%= link_to "UPLOAD MEAL", new_photo_path, class: "button upload" %>
-        <%= link_to "ALL MEALS", photos_path, class: "button upload" %>
-      <% end %>
-    </div>
+      <li>
+        <%= image_tag("breakfast.jpg", class: "th") %>
+        <p class="meal">Breakfast</p>
+      </li>
+      <li>
+        <%= image_tag("chickpeas.jpg", class: "th") %>
+        <p class="meal">Snack</p>
+      </li>
+      <li>
+         <%= image_tag("mamas-food-square.jpg", class: "th") %>
+        <p class="meal">Lunch</p>
+      </li>
+      <li>
+        <%= image_tag("snack-1.jpg", class: "th") %>
+        <p class="meal">Snack</p>
+      </li>
+    </ul>
 
+  </section>
 
-    <div class="small-6 columns">
-      <% if current_patient %>
-      <%= link_to "GOALS", patient_goals_path(current_patient), class: "button upload" %>
-      <a href="recent-comments.html" class="button comments-button">NEW FEEDBACK (3)</a>
-      <% end %>
-    </div>
-  </div><!--end buttons row-->
-</section>
-
-
-<section id="prof-recent-photos">
-  <div class="row prof-day-tab">
-    <div class="small-1 columns">
-      <h2 style="padding-top:5px;"> ◄ </h2>
-    </div>
-    <div class="small-10 columns">
-      <h2>latest meals</h2>
-    </div>
-    <div class="small-1 columns">
-      <h2 style="padding-top:5px;"> ► </h2>
-    </div>
-  </div><!--end recent photos-->
-
+  <%= link_to "Sign up as Practitioner", new_coach_path %><br>
+  <%= link_to "Log in as Practitioner", new_session_path %>
 
   <% if current_patient %>
-  <ul class="small-block-grid-3">
-  	<% current_patient.photos.each do |photo| %>
-  		<li>
-  			<%= link_to image_tag(photo.url, class: "th"), photo_path(photo) %>
-  			<p class="meal"><%= photo.notes %></p>
-  		</li>
-  	<% end %>
+  		Name: <%= current_patient.name %><br>
+  		Email: <%= current_patient.email %><br>
+  		Age: <%= current_patient.age %><br>
+  		Weight: <%= current_patient.weight %><br>
+  		Height: <%= current_patient.height %><br>
+  		Phone: <%= current_patient.phone %><br>
+  <% else %>
+
   <% end %>
-
-    <li>
-      <%= image_tag("breakfast.jpg", class: "th") %>
-      <p class="meal">Breakfast</p>
-    </li>
-    <li>
-      <%= image_tag("chickpeas.jpg", class: "th") %>
-      <p class="meal">Snack</p>
-    </li>
-    <li>
-       <%= image_tag("mamas-food-square.jpg", class: "th") %>
-      <p class="meal">Lunch</p>
-    </li>
-    <li>
-      <%= image_tag("snack-1.jpg", class: "th") %>
-      <p class="meal">Snack</p>
-    </li>
-  </ul>
-
-</section>
-
-<%= link_to "Sign up as Practitioner", new_coach_path %><br>
-<%= link_to "Log in as Practitioner", new_session_path %>
-
-<% if current_patient %>
-		Name: <%= current_patient.name %><br>
-		Email: <%= current_patient.email %><br>
-		Age: <%= current_patient.age %><br>
-		Weight: <%= current_patient.weight %><br>
-		Height: <%= current_patient.height %><br>
-		Phone: <%= current_patient.phone %><br>
-<% else %>
 
 <% end %>
