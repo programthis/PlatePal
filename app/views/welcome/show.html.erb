@@ -6,7 +6,9 @@
 
       <div class="small-4 columns prof-pic">
           <% if current_patient %>
-          <%= link_to image_tag(current_patient.avatar), edit_patient_path(current_patient)  %>
+            <%= link_to image_tag(current_patient.avatar), edit_patient_path(current_patient)  %>
+          <% elsif current_coach %>
+            <%= link_to image_tag(current_coach.avatar), edit_coach_path(current_coach)  %>
           <% end %>
       </div>
 
@@ -22,6 +24,8 @@
             <% else %>
               <span class="user-attributes-loss"><%= calc_difference %>lbs</span>
             <% end %>
+        <% elsif current_coach %>
+          <p>Name: <span class="user-attributes"><%= current_coach.name %></span></p>
         <% end %>
           
       </div>
