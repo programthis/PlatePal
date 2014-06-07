@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment.photo = @photo
     @comment.name = current_patient.name
     if @comment.save
-      redirect_to patient_photo_path(current_patient,@photo), notice: "Added new comment!"
+      redirect_to photo_path(@photo), notice: "Added new comment!"
     else
       render :new
     end

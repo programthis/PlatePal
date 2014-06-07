@@ -36,8 +36,8 @@
   <div class="row" id="prof-buttons">
     <div class="small-6 columns">
       <% if current_patient %>
-        <%= link_to "UPLOAD MEAL", new_patient_photo_path(current_patient), class: "button upload" %>
-        <%= link_to "ALL MEALS", patient_photos_path(current_patient), class: "button upload" %>
+        <%= link_to "UPLOAD MEAL", new_photo_path, class: "button upload" %>
+        <%= link_to "ALL MEALS", photos_path, class: "button upload" %>
       <% end %>
     </div>
 
@@ -68,9 +68,9 @@
 
   <% if current_patient %>
   <ul class="small-block-grid-3">
-  	<% @photos.each do |photo| %>
+  	<% current_patient.photos.each do |photo| %>
   		<li>
-  			<%= link_to image_tag(photo.url, class: "th"), patient_photo_path(current_patient, photo) %>
+  			<%= link_to image_tag(photo.url, class: "th"), photo_path(photo) %>
   			<p class="meal"><%= photo.notes %></p>
   		</li>
   	<% end %>

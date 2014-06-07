@@ -1,12 +1,12 @@
 <p>
-	<%= link_to "Edit", edit_patient_photo_path(current_patient,@photo) %>
+	<%= link_to "Edit", edit_photo_path(@photo) %>
 </p>
 
 <%= @photo.name %><br>
 <%= @photo.notes %><br>
 <%= image_tag("#{@photo.url}") %>
 
-<%= form_for([current_patient, @photo, @comment]) do |f| %>
+<%= form_for([@photo, @comment]) do |f| %>
   <p>
     <%= f.label :content, "Comment" %>
     <%= f.text_field :content %>

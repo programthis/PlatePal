@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
-    @patient.coach_id = current_coach
+    @patient.coach = current_coach
     if @patient.save
       redirect_to root_path, notice: "New patient created!"
     else
