@@ -13,7 +13,11 @@ class ApplicationController < ActionController::Base
   end
 
   def calc_difference
-	current_patient.current_weeks_weight - current_patient.last_weeks_weight
+    if current_patient.current_weeks_weight
+	   current_patient.current_weeks_weight - current_patient.last_weeks_weight
+   else
+    return 0
+   end
   end
 
   helper_method :current_patient
