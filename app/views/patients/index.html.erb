@@ -1,4 +1,5 @@
 <% current_coach.patients.each do |patient| %>
+	<%= link_to patient.name, patient_path(patient) %>
 	<%= patient.name %>
 	<%= patient.email %><br>
 <% end %>
