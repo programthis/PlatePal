@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     elsif current_coach
       @comment.name = current_coach.name
     end
-    
+      @comment.photo_url = @photo.url
     if @comment.save
       redirect_to photo_path(@photo), notice: "Added new comment!"
     else
