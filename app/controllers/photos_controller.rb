@@ -8,6 +8,10 @@ class PhotosController < ApplicationController
   	@photo = Photo.new
   end
 
+  def recent_comments
+    @comments = Comment.last(5)
+  end
+
   def create
   	@photo = Photo.new(photo_params)
   	@photo.patient = current_patient

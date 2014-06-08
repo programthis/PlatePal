@@ -9,6 +9,8 @@ PlatePal::Application.routes.draw do
     resources :comments
   end
 
+  get "recent_comments" => "photos#recent_comments"
+
 # think about trying comments as its own resource (instead of nesting it inside of patients and photos)
   
   resources :sessions

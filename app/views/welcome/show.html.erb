@@ -54,7 +54,7 @@
       <div class="small-6 columns">
         <% if current_patient %>
           <%= link_to "GOALS", patient_goals_path(current_patient), class: "button upload" %>
-          <a href="recent-comments.html" class="button comments-button">NEW FEEDBACK (3)</a>
+          <%= link_to "RECENT FEEDBACK", recent_comments_path, class: "button comments-button" %>
         <% end %>
       </div>
     </div><!--end buttons row-->
