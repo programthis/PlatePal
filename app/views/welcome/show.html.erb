@@ -44,14 +44,17 @@
         <% if current_patient %>
           <%= link_to "UPLOAD MEAL", new_photo_path, class: "button upload" %>
           <%= link_to "ALL MEALS", photos_path, class: "button upload" %>
+        <% elsif current_coach %>
+          <%= link_to "ADD PATIENT", new_patient_path, class: "button upload" %>
+          <%= link_to "ALL PATIENTS", patients_path, class: "button upload" %>
         <% end %>
       </div>
 
 
       <div class="small-6 columns">
         <% if current_patient %>
-        <%= link_to "GOALS", patient_goals_path(current_patient), class: "button upload" %>
-        <a href="recent-comments.html" class="button comments-button">NEW FEEDBACK (3)</a>
+          <%= link_to "GOALS", patient_goals_path(current_patient), class: "button upload" %>
+          <a href="recent-comments.html" class="button comments-button">NEW FEEDBACK (3)</a>
         <% end %>
       </div>
     </div><!--end buttons row-->
@@ -81,36 +84,8 @@
     		</li>
     	<% end %>
     <% end %>
-
-      <li>
-        <%= image_tag("breakfast.jpg", class: "th") %>
-        <p class="meal">Breakfast</p>
-      </li>
-      <li>
-        <%= image_tag("chickpeas.jpg", class: "th") %>
-        <p class="meal">Snack</p>
-      </li>
-      <li>
-         <%= image_tag("mamas-food-square.jpg", class: "th") %>
-        <p class="meal">Lunch</p>
-      </li>
-      <li>
-        <%= image_tag("snack-1.jpg", class: "th") %>
-        <p class="meal">Snack</p>
-      </li>
     </ul>
 
   </section>
-
-  <% if current_patient %>
-  		Name: <%= current_patient.name %><br>
-  		Email: <%= current_patient.email %><br>
-  		Age: <%= current_patient.age %><br>
-  		Weight: <%= current_patient.weight %><br>
-  		Height: <%= current_patient.height %><br>
-  		Phone: <%= current_patient.phone %><br>
-  <% else %>
-
-  <% end %>
 
 <% end %>
