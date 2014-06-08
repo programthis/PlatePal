@@ -1,5 +1,9 @@
-<% current_patient.photos.each do |f| %>
-	<%= f.name %><br>
-	<%= f.notes %><br>
-	<%= link_to image_tag("#{f.url}"),photo_path(f) %>
+<% if current_patient %>
+	<% current_patient.photos.each do |f| %>
+		<%= f.name %><br>
+		<%= f.notes %><br>
+		<%= link_to image_tag("#{f.url}"),photo_path(f) %>
+	<% end %>
+<% elsif current_coach %>
+
 <% end %>
