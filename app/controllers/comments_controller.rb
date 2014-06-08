@@ -12,7 +12,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.photo = @photo
-    @comment.name = current_patient.name
+    if current_patient
+      @comment.name = current_patient.name
+    elsif current_coach
+      @comment.name = current_coach.name
+    end
+    
     if @comment.save
       redirect_to photo_path(@photo), notice: "Added new comment!"
     else
